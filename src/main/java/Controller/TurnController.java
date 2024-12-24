@@ -26,7 +26,7 @@ public class TurnController {
     List<Player> playerList = new ArrayList<>();
     Map<Player, CLI> playerCliMap = new HashMap<>();
 
-    TurnController(Display display, Screen screen, CellManager cellController, DynamicViewController dynaCTRL){
+    public TurnController(Display display, Screen screen, CellManager cellController, DynamicViewController dynaCTRL){
         this.display = display;
         this.screen = screen;
 
@@ -34,7 +34,7 @@ public class TurnController {
         this.dynaCTRL = dynaCTRL;
     }
 
-    void initTurns() throws IOException {
+    public void initTurns() throws IOException {
         List<TextColor> colors = List.of(TextColor.ANSI.RED, TextColor.ANSI.YELLOW, TextColor.ANSI.GREEN, TextColor.ANSI.BLUE);
         for (int i = 1; i < 5; i++) {
             System.out.println("initTurns: "+i);

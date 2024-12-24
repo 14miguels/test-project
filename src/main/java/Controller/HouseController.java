@@ -16,7 +16,7 @@ public class HouseController {
     private static int y;
 
 
-    HouseController(Board board){
+    public HouseController(Board board){
         this.board = board;
     }
 

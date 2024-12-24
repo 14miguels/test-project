@@ -36,11 +36,6 @@ public class TurnControllerTest {
 
     private TurnController turnController;
 
-    @BeforeEach
-    public void setUp() {
-        MockitoAnnotations.openMocks(this);
-        turnController = new TurnController(mockDisplay, mockScreen, mockCellManager);
-    }
 
     @Test
     public void testInitTurns_CreatesPlayersAndCLI() throws IOException {

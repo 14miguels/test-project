@@ -7,7 +7,7 @@ import View.DisplayView.Display;
 import java.io.IOException;
 
 public class DiceController {
-    static boolean doubles;
+    public static boolean doubles;
     private static final Dice dice = new Dice();
     private static DiceView view;
 
