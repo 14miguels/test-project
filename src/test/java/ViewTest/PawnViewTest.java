@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.util.List;
 
 public class PawnViewTest {
+
     protected static TextColor color;
     private static Board board;
 
@@ -65,5 +66,7 @@ public class PawnViewTest {
         }
         System.out.println("Drawing pawn at: (" + position.getX() + ", " + position.getY() + "color:"+ color+")");
     }
+
+
 
 }

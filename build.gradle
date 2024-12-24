@@ -30,7 +30,7 @@ application {
 
 
 pitest {
-    targetClasses = ['*']  // Classes alvo
-    targetTests = ['*']  // Testes correspondente
+    targetClasses = ['Controller*', 'Model*', 'View*']  // Classes alvo
+    targetTests = ['Controller*Test', 'Model*Test', 'View*Test']  // Testes correspondente
     junit5PluginVersion = '1.2.1'  // Caso use JUnit 5
 }

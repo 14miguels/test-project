@@ -86,4 +86,6 @@ class HouseViewTest {
 
         verify(boardMock).showMessage("/^\\", 0, 0);
     }
+
+
 }

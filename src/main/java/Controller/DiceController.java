@@ -9,7 +9,7 @@ import java.io.IOException;
 public class DiceController {
     public static boolean doubles;
     private static final Dice dice = new Dice();
-    private static DiceView view;
+    public static DiceView view;
 
     public DiceController(Display display) {
         view = new DiceView(display);

@@ -1,58 +1,104 @@
 package ControllerTest;
 
+import static org.mockito.Mockito.*;
+import static org.junit.jupiter.api.Assertions.*;
+
 import Controller.HouseController;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.mockito.*;
+
 import Model.House;
 import Model.Position;
 import View.BoardView.Board;
 import View.BoardView.HouseView;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-import org.mockito.Mock;
-import org.mockito.Mockito;
-import org.mockito.MockitoAnnotations;
-
 import java.io.IOException;
-
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.doNothing;
-import static org.mockito.Mockito.when;
-
 
 public class HouseControllerTest {
 
     @Mock
-    private Board mockBoard;
+    private Board mockBoard;  // Mock the Board class
 
     @Mock
-    private HouseView mockHouseView;
-
-    @Mock
-    private House mockHouse;
+    private HouseView mockHouseView;  // Mock the HouseView class
 
     private HouseController houseController;
 
     @BeforeEach
     public void setUp() {
-        MockitoAnnotations.openMocks(this);
+        MockitoAnnotations.openMocks(this);  // Initialize the mocks
         houseController = new HouseController(mockBoard);
     }
 
     @Test
-    public void testShowHouse_DrawsHouseCorrectly() throws IOException {
+    public void testShowHouse_numLessThan5() throws IOException {
         // Arrange
-        when(mockHouse.getY()).thenReturn(5);
-        doNothing().when(mockHouseView).showHouse(any(Position.class));
+        House house = mock(House.class);
+        int x = 10;
+        int num = 3;  // A number less than 5, should draw the house
 
-        // Inject mock HouseView
-        HouseView view = new HouseView(mockBoard);
-        HouseView spyView = Mockito.spy(view);
-        doNothing().when(spyView).showHouse(any(Position.class));
+        // Mock the behavior of the house
+        when(house.getX()).thenReturn(0);
+        when(house.getY()).thenReturn(0);
 
-        // Set coordinate check assertions
+        // Inject the mock HouseView
+        HouseView mockView = mock(HouseView.class);
+        houseController = new HouseController(mockBoard);
 
-        // Verify function invokes Position
+        // Act
+        houseController.showHouse(num, house, x);  // Call the method
 
-        // Check Positions
-
+        // Assert
+        verify(house, times(1)).setX(x - 1);  // The X coordinate should be set to x - 1
+        verify(mockView, times(1)).showHouse(any(Position.class));  // Verify that showHouse is called
     }
+
+    @Test
+    public void testShowHouse_numGreaterThanOrEqual5() throws IOException {
+        // Arrange
+        House house = mock(House.class);
+        int x = 10;
+        int num = 5;  // A number greater than or equal to 5, should draw a hotel
+
+        // Mock the behavior of the house
+        when(house.getX()).thenReturn(0);
+        when(house.getY()).thenReturn(0);
+
+        // Inject the mock HouseView
+        HouseView mockView = mock(HouseView.class);
+        houseController = new HouseController(mockBoard);
+
+        // Act
+        houseController.showHouse(num, house, x);  // Call the method
+
+        // Assert
+        verify(house, times(1)).setX(x + 7);  // The X coordinate should be set to x + 7 for hotel
+        verify(mockView, times(1)).showHotel(any(Position.class));  // Verify that showHotel is called
+    }
+
+    @Test
+    public void testShowHouse_xPositionCalculation() throws IOException {
+        // Arrange
+        House house = mock(House.class);
+        int x = 15;
+        int num = 1;  // A number less than 5, should draw the house
+
+        // Mock the behavior of the house
+        when(house.getX()).thenReturn(0);
+        when(house.getY()).thenReturn(0);
+
+        // Inject the mock HouseView
+        HouseView mockView = mock(HouseView.class);
+        houseController = new HouseController(mockBoard);
+
+        // Act
+        houseController.showHouse(num, house, x);  // Call the method
+
+        // Assert
+        verify(house, times(1)).setX(x - 9);  // The X coordinate should be set to x - 9 for num = 1
+        verify(mockView, times(1)).showHouse(any(Position.class));  // Verify that showHouse is called
+    }
+
+
 }
+

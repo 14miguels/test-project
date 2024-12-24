@@ -110,4 +110,6 @@ public class PlayerTest {
         verify(mockProperty, times(1)).acquireHouse();
         assertEquals(300, player.account_balance);
     }
+
+
 }

@@ -8,6 +8,7 @@ import com.googlecode.lanterna.screen.Screen;
 import java.io.IOException;
 
 public class DisplayTest{
+
     private  Screen screen;
     private  int x;
     private  int y;
@@ -99,4 +100,6 @@ public class DisplayTest{
             screen.refresh();
         }
     }
+
+
 }

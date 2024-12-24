@@ -58,4 +58,6 @@ class DiceViewTest {
 
         verify(mockDisplay).showMessage("      Dice 1: " + dice1 + "       |     Dice 2: " + dice2 + "       ", 1, 6);
     }
+
+
 }

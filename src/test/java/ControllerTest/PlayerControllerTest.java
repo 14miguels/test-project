@@ -58,4 +58,6 @@ public class PlayerControllerTest {
 
         property.acquireHouse();
     }
+
+
 }

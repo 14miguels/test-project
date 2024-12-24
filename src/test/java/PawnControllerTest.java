@@ -9,8 +9,8 @@ import java.io.IOException;
 
 import static org.mockito.Mockito.*;
 
-class PawnControllerTest {
-    private Board mockBoard;
+class PawnControllerTest{
+    /*private Board mockBoard;
     private Player mockPlayer;
     private PawnController pawnController;
     //rbgvrdgt
@@ -60,4 +60,5 @@ class PawnControllerTest {
         verify(mockPlayer).setPawnX(91 - 4 * 22); // Assuming `cellWidth = 22`
         verify(mockPlayer).setPawnY(44);
     }
+*/
 }

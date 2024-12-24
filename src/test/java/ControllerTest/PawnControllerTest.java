@@ -79,4 +79,6 @@ public class PawnControllerTest {
         verify(mockPlayer).setPawnY(44);
         verify(mockPawnView).draw(new Position(91 - 4 * 22, 44));
     }
+
+
 }
